@@ -1,0 +1,77 @@
+= form_for @aeroplane do |f|
+  - if @aeroplane.errors.any?
+    #error_explanation class="alert alert-danger"
+      h2 = "#{pluralize(@aeroplane.errors.count, "error")} prohibited this aeroplane from being saved:"
+      ul
+        - @aeroplane.errors.full_messages.each do |message|
+          li = message
+
+  table class="formtable"
+    tr
+      td
+      td
+      td
+    tr
+      td
+      td
+      td
+    tr
+      td
+      td
+        .field
+          = f.label :model
+          br
+          = f.text_field :model,  class:"form-control"
+        br
+        .field
+          = f.label :number_of_seats
+          br
+          = f.text_field :number_of_seats,  class:"form-control"
+          br
+          br
+          br
+          br
+      td
+    tr
+      td
+        .field
+          = f.label :first_class_rows
+          br
+          = f.text_field :first_class_rows,  class:"form-control"
+        .field
+          = f.label :first_class_columns
+          br
+          = f.text_field :first_class_columns,  class:"form-control"
+        .field
+          = f.label :first_class_base_fare
+          br
+          = f.text_field :first_class_base_fare,  class:"form-control"
+      td
+        .field
+          = f.label :business_rows
+          br
+          = f.text_field :business_rows,  class:"form-control"
+        .field
+          = f.label :business_columns
+          br
+          = f.text_field :business_columns   ,  class:"form-control"
+        .field
+          = f.label :business_base_fare
+          br
+          = f.text_field :business_base_fare    ,  class:"form-control"
+      td
+        .field
+          = f.label :economy_rows
+          br
+          = f.text_field :economy_rows,  class:"form-control"
+        .field
+          = f.label :economy_columns
+          br
+          = f.text_field :economy_columns,  class:"form-control"
+        .field
+          = f.label :economy__base_fare
+          br
+          = f.text_field :economy_base_fare,  class:"form-control"
+  br
+  .actions-create_aeroplane_button = f.submit class:"btn btn-primary"
+  br

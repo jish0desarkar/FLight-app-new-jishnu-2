@@ -1,0 +1,23 @@
+
+-if current_user && current_user.admin
+    
+    .admin_buttons
+        =link_to "Manage Aeroplanes", aeroplanes_path, class:"btn btn-dark btn-lg linktobutton"
+        br
+        br
+        =link_to "Manage Flights", flights_path, class:"btn btn-dark btn-lg linktobutton"
+    
+-elsif current_user
+    =link_to "Sign out", destroy_user_session_path, method: :delete
+    br
+    br
+    =link_to "Book", flights_search_path
+    
+
+
+-else
+    =link_to "Sign up", new_user_registration_path
+    br
+    br
+    =link_to "Log in", new_user_session_path
+

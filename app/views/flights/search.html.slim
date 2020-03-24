@@ -1,0 +1,79 @@
+
+
+
+
+-if current_user && current_user.admin
+    
+    .admin_buttons
+        =link_to "Create Aeroplanes", aeroplanes_path, class:"btn btn-dark btn-lg linktobutton"
+        br
+        br
+        =link_to "Create Flights", flights_path, class:"btn btn-dark btn-lg linktobutton"
+    
+-else
+ 
+  h1 Search Flights
+  br
+  =form_tag flights_search_path 
+  .search-field
+    .field class="bdate"
+        = label_tag :date, "Boarding Date :"
+        br
+        = date_field_tag 'date', Date.today, class:"form-control"
+    br
+    .field class="from"
+        = label_tag :source, "Origin :"
+        br
+        = select_tag "source", options_from_collection_for_select(Flight.distinct.select(:source), "source", "source"), class:"form-control"
+        '&nbsp
+    .field class="to"
+        = label_tag :destination, "Destination :"
+        br
+        = select_tag "destination", options_from_collection_for_select(Flight.distinct.select(:destination), "destination", "destination"), class:"form-control"
+        '&nbsp
+    .searchbuttonsearch
+     = submit_tag "Search", class:"btn btn-dark"
+
+  br
+  br
+  -if(@flights.count==0)
+      hr
+      .no-match
+        h4 No flights available
+  -else
+    table class="table table-hover table-striped table-secondary"
+      thead
+        tr
+          th Date
+          th Departure
+          th Arrival
+          th Origin
+          th Destination
+          th Aeroplane
+          th
+
+    
+      tbody
+        - @flights.each do |flight|
+        
+          tr
+            td = flight.date
+            td = readable_time(flight.departure)
+            td = readable_time(flight.arrival)
+            td = flight.source
+            td = flight.destination
+            td = flight.aeroplane.model
+            - if current_user
+              td = link_to "Book", {:controller => "tickets", :action => "new", :flight_id => flight.id },  data: { turbolinks: false}
+            - else
+              td = link_to "Book", {:controller => "tickets", :action => "new", :flight_id => flight.id },  data: { turbolinks: false, confirm: "You need to log in first"  }
+
+            
+
+
+
+/ -else
+/     =link_to "Sign up", new_user_registration_path
+/     br
+/     br
+/     =link_to "Log in", new_user_session_path
