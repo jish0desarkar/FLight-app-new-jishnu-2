@@ -6,7 +6,7 @@
         - @aeroplane.errors.full_messages.each do |message|
           li = message
 
-  table class="formtable"
+  table class="form-new-aeroplane"
     tr
       td
       td
@@ -23,14 +23,7 @@
           br
           = f.text_field :model,  class:"form-control"
         br
-        .field
-          = f.label :number_of_seats
-          br
-          = f.text_field :number_of_seats,  class:"form-control"
-          br
-          br
-          br
-          br
+        
       td
     tr
       td
@@ -73,5 +66,5 @@
           br
           = f.text_field :economy_base_fare,  class:"form-control"
   br
-  .actions-create_aeroplane_button = f.submit class:"btn btn-primary"
+  .actions-create_aeroplane_button = f.submit class:"btn btn-dark text-white"
   br

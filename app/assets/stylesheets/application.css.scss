@@ -14,39 +14,40 @@
  *= require_self
  */
 
- .seatcolumn{
+ .seat-column{
  display: inline-block;
  }
- .seatcolumn input[type="radio"] {
+ .seat-column input[type="radio"] {
+     //remove default
     opacity: 0;
     position: fixed;
     width: 0;
   }
-  .seatcolumn label {
+  .seat-column label {
     display: inline-block;
-    background-color: #ddd;
-    font-family: sans-serif, Arial;
-    font-size: 16px;
-    border: 2px solid #444;
+    background-color: white;
+    font-size: 12px;
+    border: 1px dashed black;
     border-radius: 4px;
     width: 60px;
     height: 30px;
     display: flex;
+    margin: 5px;
     justify-content: center;
     align-items: center;
-    cursor: pointer;
+    cursor: grab;
 }
-.seatcolumn input[type="radio"]:checked + label {
-    background-color:#bfb;
-    border-color: #4c4;
+.seat-column input[type="radio"]:checked + label {
+    background-color:rgb(245, 46, 20);
+    border-color: rgb(233, 102, 15);
 }
-.seatcolumn input[type="radio"]:focus + label {
-    border: 2px dashed #444;
+.seat-column input[type="radio"]:focus + label {
+    border: 2px solid black;
 }
-.seatcolumn label:hover {
-    background-color: #dfd;
+.seat-column label:hover {
+    background-color: grey;
   }
-.seatcolumn input[type="radio"]:disabled + label {
+.seat-column input[type="radio"]:disabled + label {
     background-color: rgb(241, 161, 161);
     &:hover{
         cursor: not-allowed;
@@ -75,13 +76,7 @@
 .first_class{
     text-align: center;
 }
-.compressed{
-    /* border: 1px solid black;
-    height: 180px;
-    width: 200px;
-    background-image: url("layout.jpg");
-    background-size: cover;
-    border-radius: 2px; */
+.select-seat-btn{
     cursor: pointer;
 }
 /* .bookseat:hover>.compressed{
@@ -95,34 +90,14 @@
 *,*:before,*:after {
     box-sizing: border-box;
   }
-  .plane {
-    margin: 20px auto;
+  .plane-body {
+    margin: 100px auto;
+    margin-top: -200px;
     max-width: 600px;
     display: none;
   }
   
-  .cockpit {
-    height: 250px; 
-    position: relative;
-    overflow: hidden;
-    text-align: center;
-    padding-bottom: 30px;
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-    border-bottom: 5px solid #d8d8d8;}
-    .cockpit:before {
-      content: "";
-      display: block;
-      position: absolute;
-      top: 0;
-      left: 0;
-      height: 500px;
-      width: 100%;
-      border-radius: 50%;
-      border-right: 5px solid #d8d8d8;
-      border-left: 5px solid #d8d8d8;
-    }
+  
 
     .exit {
         position: relative;
@@ -130,13 +105,12 @@
         .exit:before,
         .exit:after {
           content: "EXIT";
-          font-size: 14px;
-          line-height: 18px;
-          padding: 0px 2px;
-          font-family: "Arial Narrow", Arial, sans-serif;
           display: block;
           position: absolute;
-          background: green;
+          background: red;
+          font-size: 10px;
+          line-height: 18px;
+          padding: 0px 2px;
           color: white;
           top: 50%;
           transform: translate(0, -50%);
@@ -149,6 +123,7 @@
         }
       
  .fuselage {
+        border-top: 5px solid #d8d8d8;
         border-right: 5px solid #d8d8d8;
         border-left: 5px solid #d8d8d8;
       }
@@ -177,10 +152,23 @@
     }
     .user-title{
         display: flex;
-        justify-content: space-between;
+        justify-content: space-around;
         /* border: 1px solid white; */
-        width: 430px;
+        width: 700px;
         line-height: 55px;
+    }
+
+    .card-user-btn{
+        background-color: black;
+        opacity: 80%;
+        font-size: 30px;
+        width: 40%;
+        height: 300px;
+        margin-top: 50px;
+        border-radius: 10px;
+        text-align: center;
+        line-height: 300px;
+        box-shadow: 10px 10px 20px 4px rgba(0,0,0,0.75);
     }
     a{ text-decoration: none !important;
 
@@ -194,6 +182,7 @@
         top: 0;
         width: 100%;
         z-index: 2;
+        box-shadow: 0px 16px 20px -16px rgba(0,0,0,0.75);
     }
     .pagename{
         font-size: 22px !important;
@@ -238,14 +227,18 @@
         align-items: center;
         
     }
-    .cardform{
+    .card-show{
         display: flex;
+        font-size: 20px;
         flex-direction: column;
-        margin: 140px auto;
+        justify-content: center;
+        align-items: center;
+        margin: 70px auto;
         padding: 20px;
         width: 50%;
+        height: 500px;
         border-radius: 20px;
-        background-image: linear-gradient(rgb(236, 235, 235), rgba(193, 248, 255, 0.418));
+        background-color: lightgrey;
         box-shadow: 6px 6px 12px grey;
       
         
@@ -265,8 +258,9 @@
     table th, table td{
         padding: 10px; /* Apply cell padding */
     }
-    .formtable{
-        border-top: .1px solid #337ab7;
+    .form-new-aeroplane{
+        border-top: .2px solid grey;
+        width: 100%;
         
     
     }
@@ -277,7 +271,7 @@
         
        
     }
-    .bdate{
+    .board-date{
         flex: 3;
     }
     .searchbuttonsearch{
@@ -305,9 +299,8 @@
         width: 20% !important;
         color: white !important;
     }
-    .actions{
+    .action{
         display: flex;
-        justify-content: center;
     }
     .no-match{
         color: red;

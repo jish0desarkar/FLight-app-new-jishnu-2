@@ -5,10 +5,10 @@
 -if current_user && current_user.admin
     
     .admin_buttons
-        =link_to "Create Aeroplanes", aeroplanes_path, class:"btn btn-dark btn-lg linktobutton"
+        =link_to "Aeroplanes", aeroplanes_path, class:"card-user-btn text-white"
         br
         br
-        =link_to "Create Flights", flights_path, class:"btn btn-dark btn-lg linktobutton"
+        =link_to "Flights", flights_path, class:"card-user-btn text-white"
     
 -else
  
@@ -16,7 +16,7 @@
   br
   =form_tag flights_search_path 
   .search-field
-    .field class="bdate"
+    .field class="board-date"
         = label_tag :date, "Boarding Date :"
         br
         = date_field_tag 'date', Date.today, class:"form-control"

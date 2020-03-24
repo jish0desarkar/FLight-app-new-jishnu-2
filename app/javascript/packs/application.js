@@ -21,8 +21,8 @@ require('jquery')
 //     my_func();
 //   })
 $(document).ready(function(){
-    $('.compressed').on('click', function(){
-        $('.plane').show();
+    $('.select-seat-btn').on('click', function(){
+        $('.plane-body').show();
     });
 
 });

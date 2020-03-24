@@ -1,5 +1,5 @@
 
-.cardform
+.card-show
   p
     strong Seat class: 
     = @ticket.seat_class
@@ -13,6 +13,7 @@
     strong Pnr: 
     = @ticket.pnr
 
-  => link_to 'Edit', edit_ticket_path(@ticket)
-  '
-  =< link_to 'Back', tickets_path
+  => link_to 'Edit', edit_ticket_path(@ticket), class:'btn btn-dark text-white'
+  br
+
+  =< link_to 'Back', tickets_path, class:'btn btn-dark text-white'

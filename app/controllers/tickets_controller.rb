@@ -7,7 +7,7 @@ class TicketsController < ApplicationController
   # GET /tickets
   # GET /tickets.json
   def index
-    @tickets = Ticket.all.where(user_id: current_user.id)
+    @passengers = current_user.passengers
   end
 
   # GET /tickets/1

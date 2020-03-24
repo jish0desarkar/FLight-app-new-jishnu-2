@@ -9,21 +9,24 @@ table class="table table-hover"
       th Seat number
       th Total amount
       th Pnr
+      th Plane
       th
       th
       th
 
   tbody
-    - @tickets.each do |ticket|
-      tr
-        td = ticket.passenger.name
-        td = ticket.seat_class
-        td = ticket.seat_number
-        td = "Rs." + "#{ticket.total_amount}"
-        td = ticket.pnr
-        td = link_to 'Show', ticket
-        td = link_to 'Edit', edit_ticket_path(ticket),  data: { turbolinks: false }
-        td = link_to 'Destroy', ticket, data: { confirm: 'Are you sure?' }, method: :delete
+    - @passengers.each do |p|
+      - p.tickets.each do |ticket|
+        tr
+          td = ticket.passenger.name
+          td = ticket.seat_class
+          td = ticket.seat_number
+          td = "Rs." + "#{ticket.total_amount}"
+          td = ticket.pnr
+          td = ticket.flight.aeroplane.model
+          td = link_to 'Show', ticket, class: 'btn btn-dark text-white' 
+          td = link_to 'Edit', edit_ticket_path(ticket),  data: { turbolinks: false }, class: 'btn btn-dark text-white'
+          td = link_to 'Destroy', ticket, data: { confirm: 'Are you sure?' }, method: :delete, class: 'btn btn-dark text-white'
 
 br
 

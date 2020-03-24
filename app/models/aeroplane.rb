@@ -2,27 +2,22 @@ class Aeroplane < ApplicationRecord
     has_many :flights
     has_many :passengers
 
-    validates :model, presence: {message:": please enter something"}
-    validates :number_of_seats, presence: {message:": please enter something"}
-    validates :business_rows, presence: {message:": please enter something"}
-    validates :business_columns, presence: {message:": please enter something"}
-    validates :economy_rows, presence: {message:": please enter something"}
-    validates :economy_columns, presence: {message:": please enter something"}
-    validates :first_class_rows, presence: {message:": please enter something"}
-    validates :first_class_columns, presence: {message:": please enter something"}
-    validates :business_base_fare, presence: {message:": please enter something"}
-    validates :economy_base_fare, presence: {message:": please enter something"}
-    validates :first_class_base_fare, presence: {message:": please enter something"}
+    validates :model, presence: {message:": please enter model"}
+    validates :business_rows, presence: {message:": please enter business rows"}
+    validates :business_columns, presence: {message:": please enter business columns"}
+    validates :economy_rows, presence: {message:": please enter economy"}
+    validates :economy_columns, presence: {message:": please enter economy"}
+    validates :first_class_rows, presence: {message:": please enter first class"}
+    validates :first_class_columns, presence: {message:": please enter first class"}
+    validates :business_base_fare, presence: {message:": please enter fare"}
+    validates :economy_base_fare, presence: {message:": please enter fare"}
+    validates :first_class_base_fare, presence: {message:": please enter fare"}
+
+    before_save :calc_seats
 
    
-    validate :check_seats
 
-    def check_seats
-       if first_class_rows != nil && first_class_columns != nil && business_rows != nil && business_columns != nil 
-         seat_count = (first_class_rows * first_class_columns) + (business_rows * business_columns) + (economy_rows * economy_columns)
-         if number_of_seats != seat_count
-            errors.add(:number_of_seats, "is wrong. Please enter correct number of passenger seats")
-         end
-      end
+     def calc_seats
+         self.number_of_seats = (first_class_rows * first_class_columns) + (business_rows * business_columns) + (economy_rows * economy_columns)
      end
 end

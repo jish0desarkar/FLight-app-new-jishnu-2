@@ -1,13 +1,13 @@
 h1 All Aeroplanes
 br
-table class="table table-hover"
+table class="table table-hover table-striped table-secondary"
   thead
     tr
       th Model
       th Number of seats
-      th FC fare
-      th Business fare
-      th Economy fare
+      th First class fare
+      th Business class fare
+      th Economy class fare
       th
       th
       th
@@ -20,10 +20,10 @@ table class="table table-hover"
         td = aeroplane.first_class_base_fare
         td = aeroplane.business_base_fare
         td = aeroplane.economy_base_fare
-        td = link_to 'Show', aeroplane
-        td = link_to 'Edit', edit_aeroplane_path(aeroplane)
-        td = link_to 'Destroy', aeroplane, data: { confirm: 'Are you sure?' }, method: :delete
+        td = link_to 'Show', aeroplane, class: 'btn btn-dark text-white'
+        td = link_to 'Edit', edit_aeroplane_path(aeroplane), class: 'btn btn-dark text-white'
+        td = link_to 'Destroy', aeroplane, data: { confirm: 'Are you sure?' }, method: :delete, class: 'btn btn-dark text-white'   
 
 br
 
-= link_to 'New Aeroplane', new_aeroplane_path, class:"newtext"
+= link_to 'New Aeroplane', new_aeroplane_path

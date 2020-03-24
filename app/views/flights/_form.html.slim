@@ -19,7 +19,7 @@
     br
     = f.time_select :arrival,{}, { class: "form-control" }
   .field 
-    = f.label :source
+    = f.label :origin
     br
     = f.text_field :source,  class:"form-control"
   .field
@@ -32,4 +32,4 @@
     = f.collection_select :aeroplane_id, Aeroplane.all, :id, :model,{}, { class: "form-control" }
   br
   br
-  .actions = f.submit class:"btn btn-primary"
+  .actions = f.submit class:"btn btn-dark text-white"
