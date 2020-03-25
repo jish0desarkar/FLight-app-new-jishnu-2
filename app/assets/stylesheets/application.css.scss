@@ -14,6 +14,9 @@
  *= require_self
  */
 
+ 
+
+
  .seat-column{
  display: inline-block;
  }
@@ -86,35 +89,16 @@
   }
   .plane-body {
     margin: 100px auto;
-    margin-top: -200px;
+    margin-top: -100px;
     max-width: 600px;
     display: none;
   }
   
-  
+  .fixed{
+      position: fixed;
+  }
 
-    .exit {
-        position: relative;
-        height: 50px;}
-        .exit:before,
-        .exit:after {
-          content: "EXIT";
-          display: block;
-          position: absolute;
-          background: red;
-          font-size: 10px;
-          line-height: 18px;
-          padding: 0px 2px;
-          color: white;
-          top: 50%;
-          transform: translate(0, -50%);
-        }
-        .exit:before {
-          left: 0;
-        }
-        .exit:after {
-          right: 0;
-        }
+    
       
  .fuselage {
         border-top: 5px solid #d8d8d8;
@@ -122,17 +106,18 @@
         border-left: 5px solid #d8d8d8;
       }
 
+      .mr-30{
+        margin-right: 30px;
+      }
 
-
-
-
-
-
-
-
-
-      .navbar-nav { 
-        flex-direction: row;
+      .navbar{ 
+          font-size: 15px;
+          height: 70px;
+         flex-direction: row;
+         background-color: black !important;
+    }
+    .navbar-brand{
+        margin-bottom: 15px;
     }
     .adjust{
         display: flex;
@@ -143,12 +128,17 @@
     .status{
         color: rgb(129, 125, 125);
         text-align: center;
+        line-height: 60px;
     }
-    .user-title{
+    .nav-link-group{
         display: flex;
         justify-content: space-around;
-        width: 700px;
         line-height: 55px;
+    }
+
+
+    li{
+        list-style: none;
     }
 
     .card-user-btn{
@@ -170,32 +160,21 @@
         color: #337ab7;
     }
     .navbar{
-        margin-bottom: 0px !important;
-        position: fixed !important;
-        top: 0;
-        width: 100%;
-        z-index: 2;
         box-shadow: 0px 16px 20px -16px rgba(0,0,0,0.75);
     }
     .pagename{
         font-size: 22px !important;
     }
-    .container{
-        margin-top: 80px;
-    }
-    *{
-        font-family: 'Lato', sans-serif !important;
-       
-        
-        
-     }
     body{
         background-color: rgb(220, 241, 170);
        
      }
-     .newtext{
-        font-size: 25px;
-    }
+     .nav-link{
+         color: grey !important;
+     }
+     .nav-link:hover{
+         color: white !important;
+     }
     .back-btn{
         font-size: 15px
     }
@@ -235,9 +214,6 @@
         box-shadow: 6px 6px 12px grey;
       
         
-    }
-    .linktobutton{
-        color: white !important;
     }
     .admin_buttons{
         display: flex;

@@ -8,8 +8,6 @@ class FlightsController < ApplicationController
     @flights = Flight.all
   end
 
-  def homepage
-  end
 
   # GET /flights/1
   # GET /flights/1.json

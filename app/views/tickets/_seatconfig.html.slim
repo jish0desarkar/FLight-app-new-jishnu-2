@@ -18,7 +18,6 @@ br
     .select-seat-btn class="btn btn-secondary"
        p1 Select seat
     .plane-body
-        .exit.exit--front.fuselage
         .seating.fuselage
             .seating_arrangement
                 
@@ -133,6 +132,6 @@ br
                                     = f.radio_button :seat_number, "Economy."+"#{seat_digit}"+"#{seat_alphabet}"
                                     = f.label :seat_number, "#{seat_digit}"+"#{seat_alphabet}", :value => "Economy."+"#{seat_digit}"+"#{seat_alphabet}"
                                 p4 &nbsp
-        .exit.exit--back.fuselage
+        .fuselage
                 
             
